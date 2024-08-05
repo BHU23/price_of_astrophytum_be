@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Task
+from .models import Price, Class, HistoryPredictions, Predictions
 
-# Register our model
-admin.site.register(Task)
+# Register the models with the Django admin site
+admin.site.register(Price)
+admin.site.register(Class)
+admin.site.register(HistoryPredictions)
+admin.site.register(Predictions)

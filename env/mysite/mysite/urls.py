@@ -20,7 +20,12 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/tasks/', views.TaskList.as_view()),
-    path('api/tasks/<int:pk>', views.TaskDetail.as_view()),  # New
-    path('api-auth/', include('rest_framework.urls'))  # New
+    path('api/prices/', views.PriceListCreate.as_view(), name='price-list-create'),
+    path('api/prices/<int:pk>/', views.PriceDetail.as_view(), name='price-detail'),
+    path('api/classes/', views.ClassListCreate.as_view(), name='class-list-create'),
+    path('api/classes/<int:pk>/', views.ClassDetail.as_view(), name='class-detail'),
+    path('api/history-predictions/', views.HistoryPredictionsListCreate.as_view(), name='history-predictions-list-create'),
+    path('api/history-predictions/<int:pk>/', views.HistoryPredictionsDetail.as_view(), name='history-predictions-detail'),
+    path('api/predictions/', views.PredictionsListCreate.as_view(), name='predictions-list-create'),
+    path('api/predictions/<int:pk>/', views.PredictionsDetail.as_view(), name='predictions-detail'),
 ]

@@ -1,16 +1,35 @@
-from django.shortcuts import render
-from .serializers import TaskSerializer
-from .models import Task
-from rest_framework import generics, permissions  # New
-...
-class TaskList(generics.ListCreateAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    
-    # Only an authenticated user can access this API endpoint
-    permission_classes = [permissions.IsAuthenticated]
-    # return Response(queryset.data)
+from rest_framework import generics
+from .models import Price, Class, HistoryPredictions, Predictions
+from .serializers import PriceSerializer, ClassSerializer, HistoryPredictionsSerializer, PredictionsSerializer
 
-class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+class PriceListCreate(generics.ListCreateAPIView):
+    queryset = Price.objects.all()
+    serializer_class = PriceSerializer
+
+class PriceDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Price.objects.all()
+    serializer_class = PriceSerializer
+
+class ClassListCreate(generics.ListCreateAPIView):
+    queryset = Class.objects.all()
+    serializer_class = ClassSerializer
+
+class ClassDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Class.objects.all()
+    serializer_class = ClassSerializer
+
+class HistoryPredictionsListCreate(generics.ListCreateAPIView):
+    queryset = HistoryPredictions.objects.all()
+    serializer_class = HistoryPredictionsSerializer
+
+class HistoryPredictionsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = HistoryPredictions.objects.all()
+    serializer_class = HistoryPredictionsSerializer
+
+class PredictionsListCreate(generics.ListCreateAPIView):
+    queryset = Predictions.objects.all()
+    serializer_class = PredictionsSerializer
+
+class PredictionsDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Predictions.objects.all()
+    serializer_class = PredictionsSerializer
