@@ -20,8 +20,8 @@ class HistoryPredictionsSerializer(serializers.ModelSerializer):
 
 class PredictionsSerializer(serializers.ModelSerializer):
     history_predictions = HistoryPredictionsSerializer()  # Nested HistoryPredictionsSerializer
-    class_ = ClassSerializer()  # Nested ClassSerializer
+    class_name = ClassSerializer()  # Nested ClassSerializer
 
     class Meta:
         model = Predictions
-        fields = ('id', 'history_predictions', 'class_')
+        fields = ('id', 'history_predictions', 'class_name')

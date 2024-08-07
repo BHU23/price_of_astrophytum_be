@@ -26,9 +26,9 @@ class Class(models.Model):
 class HistoryPredictions(models.Model):
     id = models.AutoField(primary_key=True)
     image = models.TextField()                # Base64-encoded image data
-    total_min = models.FloatField()
-    total_max = models.FloatField()
-    timestamp = models.DateTimeField()        # DateTime field for timestamp
+    total_min = models.FloatField(null=True, blank=True)
+    total_max = models.FloatField(null=True, blank=True)
+    timestamp = models.DateTimeField(null=True, blank=True)        # DateTime field for timestamp
 
     def __str__(self):
         return f"HistoryPrediction {self.id} at {self.timestamp}"
