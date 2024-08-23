@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',  # Oup app
+    'api.users',
     'rest_framework',  # DRF
     'corsheaders'
 ]
